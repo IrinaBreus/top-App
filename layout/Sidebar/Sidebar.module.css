@@ -1,0 +1,9 @@
+.sidebar {
+    padding-top: 34px;
+    display: grid;
+    gap: 20px;
+}
+
+.logo {
+    margin-left: 12px;
+}
