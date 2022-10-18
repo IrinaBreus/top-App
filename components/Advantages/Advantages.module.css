@@ -1,0 +1,21 @@
+
+.advantageWrapper {
+    margin-top: 27px;
+    margin-bottom: 30px;
+    display: grid;
+    gap: 30px;
+}
+
+.block {
+    display: grid;
+    grid-template: 50px auto / 50px 1fr;
+    gap: 17px 40px;
+    align-items: center;
+}
+
+.divider {
+    height: 100%;
+    width: 1px;
+    background-color: var(--gray-dark);
+    margin: 0 auto;
+}

@@ -4,7 +4,7 @@ body {
 	padding: 0;
 	color: var(--black);
 
-	font-family: "Noto Sans Mono", monospace;
+	font-family: 'Noto Sans', sans-serif;
 }
 
 a {

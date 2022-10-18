@@ -2,6 +2,7 @@
     padding-top: 34px;
     display: grid;
     gap: 20px;
+    align-self: baseline;
 }
 
 .logo {
