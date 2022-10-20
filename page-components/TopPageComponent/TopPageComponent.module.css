@@ -17,7 +17,9 @@
     align-items: baseline;
     justify-items: left;
 }
-
+.seo {
+    margin-top: 30px;
+}
 .seo h1 {
     font-weight: 500;
     font-size: 26px;
