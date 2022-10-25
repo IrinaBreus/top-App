@@ -1,0 +1,53 @@
+.review {
+    display: grid;
+    grid-template-columns: [start] 30px 1fr auto auto [end];
+    gap: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.review:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.description {
+    grid-column: start / end;
+}
+
+.name {
+    font-weight: 700;
+}
+
+.date {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 640px) {
+    .review {
+        grid-template-columns: [start] 30px [titlestart] auto [ratestart] 1fr [end];
+    }
+
+    .title {
+        grid-column: titlestart / end;
+    }
+
+    .date {
+        grid-column: titlestart / ratestart;
+    }
+
+    .rating {
+        grid-column: ratestart / end;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    
+    .date {
+        grid-column: titlestart / end;
+    }
+
+    .rating {
+        grid-column: titlestart / end;
+    }
+}

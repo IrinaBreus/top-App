@@ -11,6 +11,7 @@ import { declOfNum, priceRu } from "../../helpers/helpers";
 import { Divider } from "../Divider/Divider"; 
 import Image from "next/image";
 import { useState } from 'react';
+import { Review } from '../Review/Review';
 
 export const Product = ({product, className, ...props}: ProductProps):JSX.Element => {
 
@@ -76,7 +77,9 @@ export const Product = ({product, className, ...props}: ProductProps):JSX.Elemen
                 [styles.opened]: isReviewOpened,
                 [styles.closed]: !isReviewOpened,
             })}>
-                sdfgdf
+                {product.reviews.map(r => (
+                    <Review key={r._id} review={r} />
+                ))}
             </Card>
         </>
     );
