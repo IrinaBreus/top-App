@@ -1,10 +1,10 @@
-import { KeyboardEvent, useEffect, useState } from "react";
+import { ForwardedRef, forwardRef, KeyboardEvent, useEffect, useState } from "react";
 import { RatingProps } from "./Rating.props";
 import StarIcon from './star.svg';
 import cn from "classnames";
 import styles from './Rating.module.css';
 
-export const Rating = ({isEditable = false, rating, setRating, ...props}: RatingProps ): JSX.Element => {
+export const Rating = forwardRef(({isEditable = false, rating, setRating, error, className, ...props}: RatingProps, ref: ForwardedRef<HTMLDivElement> ): JSX.Element => {
     
     const [ratingArr, setRatingArr] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 
@@ -51,8 +51,11 @@ export const Rating = ({isEditable = false, rating, setRating, ...props}: Rating
     };
 
     return (
-        <div {...props}>
+        <div {...props} ref={ref} className={cn(styles.ratingWrapper, {
+            [styles.error]: error
+        })}>
             {ratingArr.map((r, i) => (<span key={i}>{r}</span>))}
+            {error && <span className={styles.errorMessage}>{error.message}</span>}
         </div>
     );
-};
+});

@@ -1,0 +1,75 @@
+.reviewForm {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+
+    display: grid;
+    grid-template-columns: [start] auto auto 1fr [ratingstart] auto [end];
+    gap: 20px 30px;
+    align-items: baseline;
+}
+
+.input {
+    width: 100%;
+}
+
+.description, .submit {
+    grid-column: start / end;
+}
+
+.submit {
+    display: flex;
+    align-items:center;
+}
+.rating {
+    grid-column: ratingstart / end;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+}
+
+.info {
+    margin-left: 15px;
+}
+
+.button {
+    padding: 10px 36px;
+    height: 35px;
+}
+
+.success {
+    background: var(--green-light);
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.successTitle {
+    font-weight: 700;
+}
+
+.closed {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+    .reviewForm {
+        grid-template-columns: [start] repeat(2, 1fr) [end];
+    }
+    
+    .rating {
+        grid-column: start / end;
+        grid-template-columns: auto 1fr;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .reviewForm {
+        grid-template-columns: [start] 1fr [end];
+    }
+}
