@@ -3,6 +3,7 @@
 }
 
 .input {
+    width: 100%;
     padding: 7px 15px;
     background: var(--white);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);

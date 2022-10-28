@@ -8,14 +8,30 @@ import { Button } from "../Button/Button";
 
 import CloseIcon from './close.svg';
 import { Controller, useForm } from "react-hook-form";
-import { IReviewForm } from "./ReviewForm.interface";
+import { IReviewForm, IReviewSentResponse } from "./ReviewForm.interface";
+import axios from "axios";
+import { API } from "../../helpers/api";
+import { useState } from "react";
 
 export const ReviewForm = ({ productId, className, ...props}: ReviewFormProps): JSX.Element => {
 
-    const { register, control, handleSubmit, formState: {errors}} = useForm<IReviewForm>();
+    const { register, control, handleSubmit, formState: {errors}, reset } = useForm<IReviewForm>();
+    const [isSuccess, setIsSuccess] = useState<boolean>(false);
+    const [error, setError] = useState<string>();
     
-    const onSubmit = ( data: IReviewForm ) => {
-        console.log(data);
+    const onSubmit = async (formData: IReviewForm) => {
+        try {
+            const {data} = await axios.post<IReviewSentResponse>(API.review.createDemo, {...formData, productId});
+            if (data.message) {
+                setIsSuccess(true);
+                reset();
+            } else {
+                setError('Что-то пошло не так');
+            }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } catch (e: any) {
+            setError(e.message);
+        }
     };
 
     return (
@@ -49,9 +65,10 @@ export const ReviewForm = ({ productId, className, ...props}: ReviewFormProps): 
                             <Rating    
                                 isEditable 
                                 rating={field.value} 
-                                error={errors.rating} 
                                 ref={field.ref} 
-                                setRating={field.onChange} />
+                                setRating={field.onChange} 
+                                error={errors.rating} 
+                            />
                         )}
                     />
                 </div>
@@ -72,11 +89,16 @@ export const ReviewForm = ({ productId, className, ...props}: ReviewFormProps): 
                     </span>
                 </div>
             </div>
-            <div className={styles.success} >
+            {isSuccess && <div className={cn(styles.panel, styles.success)} >
                 <div className={styles.successTitle}>Ваш отзыв отправлен</div>
                 <div>Спасибо, Ваш отзыв будет опубликован после проверки</div>
-                <CloseIcon className={styles.closed}/>
-            </div>
+                <CloseIcon className={styles.closed} onClick={() => setIsSuccess(false)}/>
+            </div>}
+
+            {error && <div className={cn(styles.panel, styles.error)} >
+                Что-то пошло не так, попробуйте обновить страницу
+                <CloseIcon className={styles.closed} onClick={() => setError(undefined)}/>
+            </div>}
         </form>
     );
 };

@@ -1,4 +1,5 @@
 .sidebar {
+    width: 230px;
     padding-top: 34px;
     display: grid;
     gap: 20px;

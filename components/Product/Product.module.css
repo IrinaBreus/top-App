@@ -69,6 +69,10 @@
     line-height: 19px;
 }
 
+.ratingTitle a:hover {
+    color: var(--primary);
+}
+
 .month {
     font-weight: 400;
     font-size: 14px;

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
-import process from 'process';
 import { ParsedUrlQuery } from 'querystring';
 import React from "react";
+import { API } from '../../helpers/api';
 import { firstLevelMenu } from '../../helpers/helpers';
 import { MenuItem } from '../../interfaces/menu.interface';
 import { withLayout } from "../../layout/Layout";
@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: GetStaticPropsC
         };
     }
 
-	const { data: menu } = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
+	const { data: menu } = await axios.post<MenuItem[]>(API.topPage.find, {
 		firstCategory: firstCategoryItem.id
 	});
 	return {
