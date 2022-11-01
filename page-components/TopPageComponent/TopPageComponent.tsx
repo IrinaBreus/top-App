@@ -5,10 +5,12 @@ import { TopLevelCatecory } from "../../interfaces/page.interface";
 import { SortEnum } from "../../components/Sort/Sort.props";
 import { useEffect, useReducer } from "react";
 import { sortReducer } from "./sort.reducer";
+import { useScrollY } from "../../hooks/useScrollY";
 
 export const TopPageComponent = ({ firstCategory, page, products }:TopPageComponentProps):JSX.Element => {
 	
 	const [{sort, products: sortedProducts}, dispatchSort] = useReducer(sortReducer, {sort: SortEnum.Rating, products});
+	const y = useScrollY();
 
 	const setSort = (sort: SortEnum) => {
 		dispatchSort({type: sort});
@@ -32,6 +34,7 @@ export const TopPageComponent = ({ firstCategory, page, products }:TopPageCompon
 				<Htag tag="h2">Вакансии - {page.category}</Htag>
 				{products && <Tag size="s" color="red">hh.ru</Tag>}
 			</div>
+			{y}
 			
 			{firstCategory == TopLevelCatecory.Courses && page.hh && <HhData {...page.hh}/>}
 			
@@ -44,8 +47,8 @@ export const TopPageComponent = ({ firstCategory, page, products }:TopPageCompon
 			
             <Htag tag='h2'>Получаемые навыки</Htag>
             {page.tags.map(t => (
-                <Tag size="s" color="primary" key={t}>{t}</Tag>
-            ))}
+				<Tag size="s" color="primary" key={t}>{t}</Tag>
+				))}
 		</div>
 	);
 };
