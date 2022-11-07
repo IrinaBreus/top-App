@@ -139,18 +139,9 @@
     margin-bottom: 7px;
 }
 
-.closed {
-    overflow: hidden;
-    max-height: 0;
-    padding: 0;
-}
-
-.opened {
-    max-height: auto;
-    padding: 30px;
-}
-
 .reviews {
+    overflow: hidden;
+    padding: 30px;
     margin-bottom: 20px;
 }
 

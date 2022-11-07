@@ -45,6 +45,12 @@
     margin-bottom: 15px;
 }
 
+@media screen and (max-width: 765px) {
+    .wrapper {
+        padding: 0 0 50px 0;
+    }
+}
+
 @media screen and (max-width: 640px) {
     .title {
         grid-template-columns: auto 1fr;

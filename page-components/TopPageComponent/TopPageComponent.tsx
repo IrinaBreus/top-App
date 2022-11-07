@@ -34,7 +34,6 @@ export const TopPageComponent = ({ firstCategory, page, products }:TopPageCompon
 				<Htag tag="h2">Вакансии - {page.category}</Htag>
 				{products && <Tag size="s" color="red">hh.ru</Tag>}
 			</div>
-			{y}
 			
 			{firstCategory == TopLevelCatecory.Courses && page.hh && <HhData {...page.hh}/>}
 			

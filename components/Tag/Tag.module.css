@@ -29,12 +29,12 @@
 
 .grey {
     color: var(--white);
-    background: #B3C0D9;
+    background: #4a5160;
     font-weight: 600;
 }
 
 .green {
-    color: var(--green);
+    color: #127a4e;
     background: var(--green-light);
     font-weight: 600;
 }

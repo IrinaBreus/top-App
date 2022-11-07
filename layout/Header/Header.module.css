@@ -1,0 +1,37 @@
+.header {
+    display: none;
+}
+
+.mobileMenu {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    background: #E5E5E5;
+    padding: 0 15px;
+    width: 100%;
+}
+
+/* .mobileSidebar {
+    width: 90%;
+} */
+
+.menuClose {
+    position: fixed;
+    top: 34px;
+    right: 15px;
+    z-index: 11;
+}
+
+
+@media (max-width: 765px) {
+    .header {
+        padding: 17px;
+        display: grid;
+        grid-template-columns: 1fr 40px;
+        gap: 10px;
+    }
+}
