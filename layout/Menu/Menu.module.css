@@ -1,3 +1,7 @@
+.firstLevelList {
+    list-style: none;
+    padding: 0;
+}
 .firstLevel {
     display: grid;
     grid-template-columns: 24px 1fr;
@@ -23,22 +27,28 @@
 .secondBlock {
     margin-top: 14px;
     margin-left: 12px;
+    padding: 0;
     padding-left: 32px;
 
     border-left: 1px solid #DFDFDF;
+    list-style: none;
 }
 
 .secondLevel {
     margin-bottom: 10px;
-
+    
     cursor: pointer;
     text-transform: uppercase;
-
+    
     color: var(--gray-dark);
     
     font-weight: 300;
     font-size: 12px;
     outline-offset: -1px;
+    
+    border: none;
+    background: transparent;
+    padding: 0;
 }
 
 .secondLevel:hover {
@@ -48,6 +58,8 @@
 
 .secondLevelBlock {
     overflow: hidden;
+    list-style: none;
+    padding: 0;
 }
 
 .thirdLevel {

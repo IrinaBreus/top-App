@@ -16,6 +16,10 @@
     line-height: 22px;    
 }
 
+.sortName {
+    display: none;
+}
+
 .active {
     font-weight: 700;
     font-size: 16px;
